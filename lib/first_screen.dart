@@ -47,8 +47,7 @@ class _FirstScreenState extends State<FirstScreen> {
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey),
                             ),
-                            focusedBorder: InputBorder.none,
-                            hintText: '  Search File',
+                            hintText: ' Search File',
                             hintStyle: TextStyle(color: Colors.grey),
                           ),
                         ),
@@ -64,7 +63,7 @@ class _FirstScreenState extends State<FirstScreen> {
                 'Photos',
                 style: TextStyle(
                   color: Colors.grey,
-                  fontSize: 54,
+                  fontSize: 24,
                 ),
               ),
               SizedBox(
@@ -85,27 +84,35 @@ class _FirstScreenState extends State<FirstScreen> {
               SizedBox(
                 height: 12,
               ),
+
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
                   crossAxisSpacing: 8.0,
                   mainAxisSpacing: 8.0,
-                  childAspectRatio: 1.5,
+                  childAspectRatio: 163 / 105, // Adjusted for fixed width & height
                   children: [
-                    Image.asset('assets/card.png'),
-                    Image.asset('assets/card-two.png'),
-                    Image.asset('assets/card-three.png'),
-                    Image.asset('assets/card-four.png'),
-                    Image.asset('assets/card-five.png'),
-                    Image.asset('assets/card-six.png'),
-                    Image.asset('assets/card-seven.png'),
-                    Image.asset('assets/card.png'),
-                    Image.asset('assets/card-two.png'),
-                    Image.asset('assets/card-three.png'),
-                    Image.asset('assets/card-four.png'),
-                    Image.asset('assets/card-five.png'),
-                    Image.asset('assets/card-six.png'),
-                    Image.asset('assets/card-seven.png'),
+                    for (var image in [
+                      'assets/card.png',
+                      'assets/card-two.png',
+                      'assets/card-three.png',
+                      'assets/card-four.png',
+                      'assets/card-five.png',
+                      'assets/card-six.png',
+                      'assets/card-seven.png',
+                      'assets/card.png',
+                      'assets/card-two.png',
+                      'assets/card-three.png',
+                      'assets/card-four.png',
+                      'assets/card-five.png',
+                      'assets/card-six.png',
+                      'assets/card-seven.png',
+                    ])
+                      SizedBox(
+                        width: 375,
+                        height: 812,
+                        child: Image.asset(image, fit: BoxFit.cover),
+                      ),
                   ],
                 ),
               ),
