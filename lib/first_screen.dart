@@ -1,3 +1,4 @@
+import 'package:additional_flutter/facebook.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -8,7 +9,14 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
+
   final text = TextEditingController();
+  void _navigateToCameraPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const FacebookHomePage()),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,6 +135,11 @@ class _FirstScreenState extends State<FirstScreen> {
         unselectedItemColor: Colors.white,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        onTap: (index) {
+          if (index == 1) {
+            _navigateToCameraPage(context);
+          }
+        },
         items:  [
           BottomNavigationBarItem(
             icon: Icon(Icons.photo_library),
