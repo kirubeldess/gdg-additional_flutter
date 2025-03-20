@@ -1,7 +1,15 @@
+import 'package:additional_flutter/notifications.dart';
 import 'package:flutter/material.dart';
 
 class FacebookHomePage extends StatelessWidget {
   const FacebookHomePage({super.key});
+
+  void _navigateToNotificationsPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const NotificationsPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +50,11 @@ class FacebookHomePage extends StatelessWidget {
               unselectedItemColor: Colors.grey,
               showSelectedLabels: true,
               showUnselectedLabels: true,
+              onTap: (index) {
+                if (index == 3) {
+                  _navigateToNotificationsPage(context);
+                }
+              },
               items: [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home),
@@ -65,7 +78,7 @@ class FacebookHomePage extends StatelessWidget {
                 ),
               ],
               currentIndex: 0,
-              onTap: (index) {},
+              // onTap: (index) {},
             ),
           ),
         ),
